@@ -9,14 +9,18 @@ import pandas as pd
 
 
 class UploadService:
-    """Service responsible for dataset uploads."""
 
     SUPPORTED_EXTENSIONS = {".csv"}
 
     def validate_file(self, uploaded_file):
-        """Validate the uploaded file."""
 
-        extension = Path(uploaded_file.name).suffix.lower()
+        filename = getattr(
+            uploaded_file,
+            "filename",
+            getattr(uploaded_file, "name", "")
+        )
+
+        extension = Path(filename).suffix.lower()
 
         if extension not in self.SUPPORTED_EXTENSIONS:
             raise ValueError(
@@ -26,10 +30,15 @@ class UploadService:
         return True
 
     def load_dataset(self, uploaded_file):
-        """Load a CSV file into a pandas DataFrame."""
 
         self.validate_file(uploaded_file)
 
-        dataframe = pd.read_csv(uploaded_file)
+        file_object = getattr(
+            uploaded_file,
+            "file",
+            uploaded_file
+        )
+
+        dataframe = pd.read_csv(file_object)
 
         return dataframe
