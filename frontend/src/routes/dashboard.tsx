@@ -46,7 +46,7 @@ function Dashboard() {
             loading ? (
               <LoadingExperience onDone={() => { setLoading(false); setUploaded(true); }} />
             ) : (
-              <UploadScreen onUpload={() => setLoading(true)} />
+              <UploadScreen onUpload={(analysis) => {setAnalysis(analysis); setLoading(true); }} />
             )
           ) : (
             <div key={section} className="animate-slide-up">
@@ -156,17 +156,51 @@ function UploadScreen({ onUpload }: { onUpload: () => void }) {
   const [progress, setProgress] = useState<number | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const start = (name: string) => {
-    setFileName(name);
+  const start = async (file: File) => {
+    setFileName(file.name);
     setProgress(0);
-    const id = setInterval(() => {
+
+    const timer = setInterval(() => {
       setProgress((p) => {
         if (p === null) return 0;
-        if (p >= 100) { clearInterval(id); setTimeout(onUpload, 350); return 100; }
-        return Math.min(100, p + 7 + Math.random() * 8);
+        return Math.min(90, p + 8);
       });
-    }, 90);
+    }, 120);
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const response = await fetch(
+        "http://127.0.0.1:8000/upload/",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Upload failed");
+      }
+
+      const analysis = await response.json();
+
+      clearInterval(timer);
+
+      setProgress(100);
+
+      setTimeout(() => {
+        onUpload(analysis);
+      }, 500);
+
+    } catch (error) {
+
+      clearInterval(timer);
+
+      console.error(error);
+
+      alert("Upload failed.");
+    }
   };
 
   return (
@@ -184,14 +218,14 @@ function UploadScreen({ onUpload }: { onUpload: () => void }) {
       <div
         onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
         onDragLeave={() => setDragging(false)}
-        onDrop={(e) => { e.preventDefault(); setDragging(false); const f = e.dataTransfer.files?.[0]; start(f?.name ?? datasetName); }}
+        onDrop={(e) => {e.preventDefault();setDragging(false);const file = e.dataTransfer.files?.[0];if (file) {start(file);}}}
         onClick={() => inputRef.current?.click()}
         className={[
           "relative cursor-pointer rounded-3xl border-2 border-dashed p-12 text-center transition-all glass-strong",
           dragging ? "border-primary shadow-glow scale-[1.01]" : "border-border hover:border-primary/50 hover:shadow-elegant",
         ].join(" ")}
       >
-        <input ref={inputRef} type="file" accept=".csv" className="hidden" onChange={(e) => { const f = e.target.files?.[0]; if (f) start(f.name); }} />
+        <input ref={inputRef} type="file" accept=".csv" className="hidden" onChange={(e) => {const file = e.target.files?.[0];if (file) {start(file);}}} />
         {progress === null ? (
           <>
             <div className="mx-auto h-16 w-16 rounded-2xl gradient-bg flex items-center justify-center shadow-glow mb-5 animate-float">
@@ -203,11 +237,9 @@ function UploadScreen({ onUpload }: { onUpload: () => void }) {
               <Upload className="h-4 w-4" /> Choose file
             </button>
             <div className="mt-8 flex flex-wrap justify-center gap-2 text-[11px] text-muted-foreground">
-              {["transactions.csv", "sales_q4.csv", "users.csv"].map((s) => (
-                <button key={s} onClick={(e) => { e.stopPropagation(); start(s); }} className="px-2.5 py-1 rounded-full glass hover:shadow-soft transition">
-                  Try {s}
-                </button>
-              ))}
+              <div className="mt-8 text-[11px] text-muted-foreground">
+                Demo datasets coming soon...
+              </div>
             </div>
           </>
         ) : (
