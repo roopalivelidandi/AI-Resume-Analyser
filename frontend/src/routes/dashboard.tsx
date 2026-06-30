@@ -46,7 +46,7 @@ function Dashboard() {
             loading ? (
               <LoadingExperience onDone={() => { setLoading(false); setUploaded(true); }} />
             ) : (
-              <UploadScreen onUpload={(analysis) => {setAnalysis(analysis); setLoading(true); }} />
+              <UploadScreen onUpload={(analysis) => { console.log("Backend Response:", analysis); setAnalysis(analysis); setLoading(true); }} />
             )
           ) : (
             <div key={section} className="animate-slide-up">
@@ -151,7 +151,7 @@ function TopBar({ section, uploaded }: { section: Section; uploaded: boolean }) 
 
 /* ---------------- Upload ---------------- */
 
-function UploadScreen({ onUpload }: { onUpload: () => void }) {
+function UploadScreen({ onUpload }: {   onUpload: (analysis: any) => void; }) {
   const [dragging, setDragging] = useState(false);
   const [progress, setProgress] = useState<number | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
@@ -238,7 +238,7 @@ function UploadScreen({ onUpload }: { onUpload: () => void }) {
             </button>
             <div className="mt-8 flex flex-wrap justify-center gap-2 text-[11px] text-muted-foreground">
               <div className="mt-8 text-[11px] text-muted-foreground">
-                Demo datasets coming soon...
+                  Demo datasets coming soon...
               </div>
             </div>
           </>
