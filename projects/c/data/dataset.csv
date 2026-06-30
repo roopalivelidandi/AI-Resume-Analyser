@@ -1,0 +1,121 @@
+CustomerID,Gender,Tenure,MonthlyCharges,Contract,Churn
+C0001,Male,6,65,Two year,Yes
+C0002,Female,14,65,Two year,Yes
+C0003,Male,31,40,One year,Yes
+C0004,Female,23,114,,Yes
+C0005,Male,35,40,One year,Yes
+C0006,Male,61,48,One year,No
+C0007,Male,40,49,Month-to-month,Yes
+C0008,Female,52,62,Month-to-month,No
+C0009,Female,45,102,Two year,No
+C0010,Female,4,34,Month-to-month,No
+C0011,Female,5,33,One year,No
+C0012,Male,56,97,One year,Yes
+C0013,Female,33,25,Month-to-month,Yes
+C0014,Male,47,75,Two year,No
+C0015,Male,41,104,Two year,No
+C0016,Female,65,59,One year,No
+C0017,Male,38,90,Month-to-month,No
+C0018,Male,49,106,Two year,No
+C0019,Male,52,90,One year,No
+C0020,Female,27,75,One year,No
+C0021,Male,57,106,Two year,No
+C0022,Male,22,104,One year,No
+C0023,Male,12,116,Two year,No
+C0024,Male,29,45,Month-to-month,Yes
+C0025,Male,32,80,One year,No
+C0026,Female,25,111,One year,No
+C0027,Male,32,38,Month-to-month,No
+C0028,Female,29,42,Month-to-month,Yes
+C0029,Male,16,78,One year,No
+C0030,Female,57,98,Two year,No
+C0031,Female,21,115,One year,No
+C0032,Female,32,101,Two year,No
+C0033,Female,31,55,Month-to-month,No
+C0034,Female,31,54,One year,Yes
+C0035,Male,18,39,One year,Yes
+C0036,Female,28,28,One year,No
+C0037,Female,70,79,Month-to-month,Yes
+C0038,Male,54,69,Two year,No
+C0039,Female,62,20,One year,No
+C0040,Male,54,88,One year,Yes
+C0041,Female,35,75,Month-to-month,No
+C0042,Female,44,105,Two year,Yes
+C0043,Male,60,36,One year,Yes
+C0044,Female,11,102,Month-to-month,No
+C0045,Female,24,26,One year,No
+C0046,Female,28,78,One year,No
+C0047,Female,36,116,One year,Yes
+C0048,Male,61,22,One year,Yes
+C0049,Male,9,119,Month-to-month,Yes
+C0050,Male,26,22,Month-to-month,Yes
+C0051,Male,61,105,Two year,Yes
+C0052,Female,60,109,One year,Yes
+C0053,Male,15,119,One year,Yes
+C0054,Female,4,59,One year,Yes
+C0055,Male,10,95,Month-to-month,No
+C0056,Male,16,92,One year,No
+C0057,Female,48,28,Month-to-month,No
+C0058,Female,63,33,One year,No
+C0059,Male,20,75,Two year,No
+C0060,Female,69,119,One year,No
+C0061,Male,35,61,Month-to-month,No
+C0062,Female,58,51,Two year,No
+C0063,Female,44,23,One year,Yes
+C0064,Female,63,47,One year,No
+C0065,Female,36,96,Two year,Yes
+C0066,Male,67,44,Month-to-month,No
+C0067,Male,63,91,Two year,No
+C0068,Male,63,77,Month-to-month,No
+C0069,Male,29,71,One year,No
+C0070,Female,61,90,One year,No
+C0071,Female,46,109,One year,No
+C0072,Male,33,49,Two year,Yes
+C0073,Male,41,35,Month-to-month,Yes
+C0074,Female,62,55,Month-to-month,Yes
+C0075,Female,38,49,Month-to-month,No
+C0076,Male,2,110,One year,Yes
+C0077,Female,7,90,Two year,Yes
+C0078,Male,63,33,Two year,No
+C0079,Female,61,81,One year,Yes
+C0080,Female,7,52,Month-to-month,Yes
+C0081,Male,52,82,Two year,Yes
+C0082,Female,20,39,Month-to-month,Yes
+C0083,Female,16,91,Two year,Yes
+C0084,Female,67,68,One year,No
+C0085,Male,55,59,Two year,Yes
+C0086,Male,27,100,One year,Yes
+C0087,Male,21,50,Two year,Yes
+C0088,Female,21,20,One year,No
+C0089,Male,38,24,One year,No
+C0090,Male,59,29,One year,Yes
+C0091,Male,55,34,Two year,Yes
+C0092,Male,35,38,Month-to-month,Yes
+C0093,Female,40,96,One year,Yes
+C0094,Female,60,108,Two year,No
+C0095,Female,35,84,One year,Yes
+C0096,Female,6,75,Two year,No
+C0097,Male,4,31,Two year,Yes
+C0098,Male,35,93,Month-to-month,No
+C0099,Female,67,103,One year,Yes
+C0100,Female,56,101,Month-to-month,No
+C0101,Female,45,72,One year,Yes
+C0102,Female,21,62,Two year,No
+C0103,Female,37,104,Two year,Yes
+C0104,Female,59,31,One year,No
+C0105,Female,15,118,Two year,Yes
+C0106,Female,70,79,Month-to-month,Yes
+C0107,Female,67,66,Two year,No
+C0108,Female,7,46,Two year,Yes
+C0109,Female,37,76,Month-to-month,Yes
+C0110,Male,31,110,One year,Yes
+C0111,Male,71,72,Month-to-month,Yes
+C0112,Male,60,35,One year,No
+C0113,Female,66,110,One year,No
+C0114,Female,61,51,Two year,Yes
+C0115,Male,50,44,Month-to-month,No
+C0116,Female,54,63,Month-to-month,No
+C0117,Female,39,95,Month-to-month,No
+C0118,Female,69,81,One year,No
+C0119,Male,59,61,Two year,Yes
+C0120,Female,50,49,Month-to-month,No
